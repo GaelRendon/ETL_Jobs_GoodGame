@@ -73,7 +73,7 @@ def run_job():
                 
         print(f"--> ¡Listo! Se subieron {archivos_subidos} archivos de {tabla}.")
 
-    conn.close()
+    conn.close():
     print("\n¡Migración de todas las tablas completada!")
 
 if __name__ == "__main__":
