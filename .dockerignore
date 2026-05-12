@@ -1,0 +1,12 @@
+.git
+.gitignore
+.vscode
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+analysis/
+logs/
+data_output/
