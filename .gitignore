@@ -1,5 +1,13 @@
-.venv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+logs/*
+!logs/.gitkeep
+data_output/*
+!data_output/.gitkeep
 .env
 .vscode/
-__pycache__/
-data_output/
+*.code-workspace

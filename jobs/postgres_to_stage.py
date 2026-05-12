@@ -5,14 +5,19 @@ import os
 
 load_dotenv()
 
-def run_job():
+def export_postgres_to_stage():
     print("Iniciando proceso masivo de tablas...")
     
     # 1. Configurar Spark
-    spark = SparkSession.builder \
-        .appName("AzureToServerSnowflake") \
-        .config("spark.jars.packages", "org.postgresql:postgresql:42.7.2") \
+    spark = (
+        SparkSession.builder
+        .appName("AzureToServerSnowflake")
+        .config("spark.jars.packages", "org.postgresql:postgresql:42.7.2")
+        .config("spark.driver.memory", "1g")
+        .config("spark.executor.memory", "1g")
+        .config("spark.sql.shuffle.partitions", "4")
         .getOrCreate()
+    )
 
     spark.sparkContext.setLogLevel("Error")
     
@@ -77,4 +82,4 @@ def run_job():
     print("\n¡Migración de todas las tablas completada!")
 
 if __name__ == "__main__":
-    run_job()
+    export_postgres_to_stage()
